@@ -1,13 +1,13 @@
 package controller;
 
 import album.Canvas;
-import command.ChangeColorShape;
-import command.ChangeSizeShape;
-import command.Command;
-import command.MoveShape;
-import command.PutShape;
-import command.RemoveShape;
-import command.SnapShotCanvas;
+import controller.command.ChangeColorShape;
+import controller.command.ChangeSizeShape;
+import controller.command.Command;
+import controller.command.MoveShape;
+import controller.command.PutShape;
+import controller.command.RemoveShape;
+import controller.command.SnapShotCanvas;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
