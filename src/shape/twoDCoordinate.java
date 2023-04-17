@@ -6,8 +6,8 @@ package shape;
 public class twoDCoordinate implements ICoordinate {
 
   private String referencePoint;
-  private double x;
-  private double y;
+  private int x;
+  private int y;
 
   /**
    * Instantiates a new 2D coordinate.
@@ -15,29 +15,29 @@ public class twoDCoordinate implements ICoordinate {
    * @param x the x
    * @param y the y
    */
-  public twoDCoordinate(double x, double y) {
-    this.referencePoint = "Center"; // reference point will always be center
+  public twoDCoordinate(int x, int y) {
+    this.referencePoint = "Upper Left"; // reference point will always be center
     this.x = x;
     this.y = y;
   }
 
   @Override
-  public double getX() {
+  public int getX() {
     return x;
   }
 
   @Override
-  public double getY() {
+  public int getY() {
     return y;
   }
 
   @Override
-  public void setX(double xCoordinate) {
+  public void setX(int xCoordinate) {
     this.x = xCoordinate;
   }
 
   @Override
-  public void setY(double yCoordinate) {
+  public void setY(int yCoordinate) {
     this.y = yCoordinate;
   }
 

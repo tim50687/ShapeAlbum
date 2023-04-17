@@ -9,24 +9,21 @@ import shape.ICoordinate;
 public class MoveShape implements Command {
 
   private Canvas canvas;
-  private String type;
   private String name;
   private ICoordinate newCoordinate;
   private ICoordinate previousCoordinate;
 
 
   /**
-   * Instantiates a new MoveShape command.
+   * Instantiates a new Move shape.
    *
    * @param canvas        the canvas
-   * @param type          the type of the shape
-   * @param name          the name of the shape
+   * @param name          the name
    * @param newCoordinate the new coordinate
    */
-  public MoveShape(Canvas canvas, String type, String name,
+  public MoveShape(Canvas canvas, String name,
       ICoordinate newCoordinate) {
     this.canvas = canvas;
-    this.type = type;
     this.name = name;
     this.newCoordinate = newCoordinate;
   }
@@ -34,11 +31,11 @@ public class MoveShape implements Command {
   @Override
   public void execute() {
     this.previousCoordinate = this.canvas.getShape(name).getCoordinate();
-    this.canvas.move(this.type, this.name, this.newCoordinate);
+    this.canvas.move(this.name, this.newCoordinate);
   }
 
   @Override
   public void undo() {
-    this.canvas.move(this.type, this.name, this.previousCoordinate);
+    this.canvas.move(this.name, this.previousCoordinate);
   }
 }

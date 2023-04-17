@@ -14,13 +14,18 @@ public abstract class AbstractShape implements IShape {
 
   protected Color color;
 
+  protected int width;
+  protected int height;
+
   /**
    * Instantiates a new AbstractShape with the specified coordinate and color.
    */
-  public AbstractShape(String name, ICoordinate coordinate, Color color) {
+  public AbstractShape(String name, ICoordinate coordinate, Color color, int width, int height) {
     this.name = name;
     this.coordinate = coordinate;
     this.color = color;
+    this.width = width;
+    this.height = height;
   }
 
   @Override
@@ -41,6 +46,26 @@ public abstract class AbstractShape implements IShape {
   @Override
   public Color getColor() {
     return this.color;
+  }
+
+  @Override
+  public int getWidth() {
+    return this.width;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.height;
+  }
+
+  @Override
+  public void setWidth(int width) {
+    this.width = width;
+  }
+
+  @Override
+  public void setHeight(int height) {
+    this.height = height;
   }
 
 

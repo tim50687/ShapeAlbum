@@ -9,28 +9,26 @@ import shape.IShape;
 public class PutShape implements Command {
 
   private Canvas canvas;
-  private String type;
   private String name;
   private IShape shape;
+
 
   /**
    * Instantiates a new Put shape.
    *
    * @param canvas the canvas
-   * @param type   the type of the shape
-   * @param name   the name of the shape
+   * @param name   the name
    * @param shape  the shape
    */
-  public PutShape(Canvas canvas, String type, String name, IShape shape) {
+  public PutShape(Canvas canvas, String name, IShape shape) {
     this.canvas = canvas;
-    this.type = type;
     this.name = name;
     this.shape = shape;
   }
 
   @Override
   public void execute() {
-    this.canvas.putShape(this.type, this.name, this.shape);
+    this.canvas.putShape(this.name, this.shape);
   }
 
   @Override

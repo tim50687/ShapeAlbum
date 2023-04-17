@@ -5,11 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import shape.Circle;
 import shape.ICoordinate;
 import shape.IShape;
-import shape.Rectangle;
-import shape.Square;
 
 /**
  * This is a Java class named Canvas that represents a canvas for putting shapes on it.
@@ -21,43 +18,9 @@ public class Canvas {
   // Snapshots that stored in the Canvas
   private LinkedHashMap<String, String> snapshots;
 
-  private final double length;
-  private final double width;
+  private final int length;
+  private final int width;
 
-  /**
-   * A helper method that check the validity of actions before they are performed.
-   *
-   * @param type       shape type
-   * @param shape      type of IShape
-   * @param coordinate coordinate of shape
-   * @return true if the action is valid, false otherwise
-   */
-  private boolean checkValidAction(String type, IShape shape, ICoordinate coordinate) {
-    switch (type.toUpperCase()) {
-      case "CIRCLE":
-        Circle circle = (Circle) shape;
-        // Check the new coordinate is valid or not
-        return !(coordinate.getX() + circle.getRadius() > this.length)
-            && !(coordinate.getX() - circle.getRadius() < 0)
-            && !(coordinate.getY() + circle.getRadius() > this.width)
-            && !(coordinate.getY() - circle.getRadius() < 0);
-      case "RECTANGLE":
-        Rectangle rectangle = (Rectangle) shape;
-        // Check the new coordinate is valid or not
-        return !(coordinate.getX() + rectangle.getLength() / 2 > this.length)
-            && !(coordinate.getX() - rectangle.getLength() / 2 < 0)
-            && !(coordinate.getY() + rectangle.getWidth() / 2 > this.width)
-            && !(coordinate.getY() - rectangle.getWidth() / 2 < 0);
-      case "SQUARE":
-        Square square = (Square) shape;
-        // Check the new coordinate is valid or not
-        return !(coordinate.getX() + square.getWidth() / 2 > this.length)
-            && !(coordinate.getX() - square.getWidth() / 2 < 0)
-            && !(coordinate.getY() + square.getWidth() / 2 > this.width)
-            && !(coordinate.getY() - square.getWidth() / 2 < 0);
-    }
-    return false;
-  }
 
   /**
    * Instantiates a new Canvas.
@@ -65,7 +28,7 @@ public class Canvas {
    * @param length the length
    * @param width  the width
    */
-  public Canvas(double length, double width) {
+  public Canvas(int length, int width) {
     if (length < 0 || width < 0) {
       throw new IllegalArgumentException("Size cannot be negative value");
     }
@@ -76,20 +39,16 @@ public class Canvas {
   }
 
   /**
-   * Move the shape on te canvas.
+   * Move.
    *
-   * @param type       the type
-   * @param name       the name of the shape
-   * @param coordinate the coordinate of the shape
+   * @param name       the name
+   * @param coordinate the coordinate
    * @throws IllegalArgumentException the illegal argument exception
    */
-  public void move(String type, String name, ICoordinate coordinate)
+  public void move(String name, ICoordinate coordinate)
       throws IllegalArgumentException {
     // Check the null string and empty string
     if (name == null || name.equals("")) {
-      throw new IllegalArgumentException("Name cannot be empty string or null");
-    }
-    if (type == null || type.equals("")) {
       throw new IllegalArgumentException("Name cannot be empty string or null");
     }
     // Check the null coordinate
@@ -100,28 +59,21 @@ public class Canvas {
     if (!this.shapes.containsKey(name)) {
       throw new IllegalArgumentException("Can't find your shape");
     }
-    // Make sure the coordinate is valid
-    if (coordinate.getX() > length || coordinate.getX() < 0 || coordinate.getY() > width
-        || coordinate.getY() < 0) {
-      throw new IllegalArgumentException("Invalid Coordinate");
-    }
-    if (checkValidAction(type, this.shapes.get(name), coordinate)) {
-      this.shapes.get(name).move(coordinate);
-    } else {
-      throw new IllegalArgumentException("Invalid move shape, shape out of bound");
-    }
+    // Move the shape
+    this.shapes.get(name).move(coordinate);
+
 
   }
 
+
   /**
-   * Put shape on the canvas.
+   * Put shape.
    *
-   * @param type  the type of the shape
-   * @param name  the name of the shape
+   * @param name  the name
    * @param shape the shape
    * @throws IllegalArgumentException the illegal argument exception
    */
-  public void putShape(String type, String name, IShape shape) throws IllegalArgumentException {
+  public void putShape(String name, IShape shape) throws IllegalArgumentException {
     // Check the null string and empty string
     if (name == null || name.equals("")) {
       throw new IllegalArgumentException("Name cannot be empty string or null");
@@ -130,19 +82,13 @@ public class Canvas {
     if (shape == null) {
       throw new IllegalArgumentException("Shape cannot be null");
     }
-    // Check the null string and empty string
-    if (type == null || type.equals("")) {
-      throw new IllegalArgumentException("Name cannot be empty string or null");
-    }
     // Check same name
     if (this.shapes.containsKey(name)) {
       throw new IllegalArgumentException("Can not have the same name");
     }
-    if (checkValidAction(type, shape, shape.getCoordinate())) {
-      this.shapes.put(name, shape);
-    } else {
-      throw new IllegalArgumentException("Invalid put shape, shape out of bound");
-    }
+    // Put the shape on the canvas
+    this.shapes.put(name, shape);
+
   }
 
   /**
@@ -166,86 +112,26 @@ public class Canvas {
 
   }
 
+
   /**
    * Change shape size.
    *
-   * @param type   the type of the shape
-   * @param name   the name of the shape
-   * @param params the params that represents the dimension of the shape
+   * @param name   the name
+   * @param width  the width
+   * @param height the height
    * @throws IllegalArgumentException the illegal argument exception
    */
-  public void changeShapeSize(String type, String name, double... params)
+  public void changeShapeSize(String name, int width, int height)
       throws IllegalArgumentException {
     if (name == null || name.equals("")) {
-      throw new IllegalArgumentException("Name cannot be empty string or null");
-    }
-    if (type == null || type.equals("")) {
       throw new IllegalArgumentException("Name cannot be empty string or null");
     }
     // Make sure the shape is in the canvas
     if (!this.shapes.containsKey(name)) {
       throw new IllegalArgumentException("Can't find your shape");
     }
-    // New size of the shape 
-    double radius;
-    double width;
-    double length;
-    // If new size is invalid, change it back
-    double oldRadius;
-    double oldWidth;
-    double oldLength;
-    switch (type.toUpperCase()) {
-      case "CIRCLE":
-        if (params.length != 1) {
-          throw new IllegalArgumentException("Circle requires 1 parameter: radius");
-        }
-        radius = params[0];
-        Circle circle = (Circle) this.shapes.get(name);
-        oldRadius = circle.getRadius();
-        circle.setSize(radius);
-        // If shape is out of canvas after changing the size, change it back
-        if (!checkValidAction(type, this.shapes.get(name), this.shapes.get(name).getCoordinate())) {
-          circle.setSize(oldRadius);
-          throw new IllegalArgumentException("Invalid change size, shape out of bound");
-        }
-        break;
-      case "SQUARE":
-        if (params.length != 1) {
-          throw new IllegalArgumentException("Square requires 1 parameter: radius");
-        }
-        width = params[0];
-        Square square = (Square) this.shapes.get(name);
-        oldWidth = square.getWidth();
-        square.setWidth(width);
-        // If shape is out of canvas after changing the size, change it back
-        if (!checkValidAction(type, this.shapes.get(name), this.shapes.get(name).getCoordinate())) {
-          square.setWidth(oldWidth);
-          throw new IllegalArgumentException("Invalid change size, shape out of bound");
-        }
-        break;
-      case "RECTANGLE":
-        if (params.length != 2) {
-          throw new IllegalArgumentException("Circle requires 1 parameter: radius");
-        }
-        if (params[0] > params[1]) {
-          width = params[1];
-          length = params[0];
-        } else {
-          width = params[0];
-          length = params[1];
-        }
-        Rectangle rectangle = (Rectangle) this.shapes.get(name);
-        oldLength = rectangle.getLength();
-        oldWidth = rectangle.getWidth();
-        rectangle.setSize(length, width);
-        // If shape is out of canvas after changing the size, change it back
-        if (!checkValidAction(type, this.shapes.get(name), this.shapes.get(name).getCoordinate())) {
-          rectangle.setSize(oldLength, oldWidth);
-          throw new IllegalArgumentException("Invalid change size, shape out of bound");
-        }
-        break;
-    }
-
+    this.shapes.get(name).setWidth(width);
+    this.shapes.get(name).setHeight(height);
   }
 
   /**
@@ -358,10 +244,10 @@ public class Canvas {
     }
     System.out.println(ans);
   }
-  
+
   @Override
   public String toString() {
-    return String.format("Canvas:\nLength: %.1f, Height: %.1f", this.length, this.width);
+    return String.format("Canvas:\nLength: %d, Height: %d", this.length, this.width);
   }
 
 

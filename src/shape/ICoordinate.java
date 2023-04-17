@@ -18,27 +18,27 @@ public interface ICoordinate {
    *
    * @param xCoordinate the new x coordinate
    */
-  void setX(double xCoordinate);
+  void setX(int xCoordinate);
 
   /**
    * Sets the y coordinate of this coordinate to the specified value.
    *
    * @param yCoordinate the new y coordinate
    */
-  void setY(double yCoordinate);
+  void setY(int yCoordinate);
 
   /**
    * Gets the x coordinate of this coordinate.
    *
    * @return the x coordinate
    */
-  double getX();
+  int getX();
 
   /**
    * Gets the x coordinate of this coordinate.
    *
    * @return the y coordinate
    */
-  double getY();
+  int getY();
 
 }

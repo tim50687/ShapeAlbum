@@ -10,7 +10,6 @@ public class RemoveShape implements Command {
 
   private Canvas canvas;
   private String name;
-  private String type;
   private IShape shape;
 
   /**
@@ -22,7 +21,6 @@ public class RemoveShape implements Command {
   public RemoveShape(Canvas canvas, String name) {
     this.canvas = canvas;
     this.name = name;
-    this.type = this.canvas.getShape(this.name).getClass().getSimpleName();
     this.shape = this.canvas.getShape(this.name);
   }
 
@@ -34,6 +32,6 @@ public class RemoveShape implements Command {
 
   @Override
   public void undo() {
-    this.canvas.putShape(this.type, this.name, this.shape);
+    this.canvas.putShape(this.name, this.shape);
   }
 }

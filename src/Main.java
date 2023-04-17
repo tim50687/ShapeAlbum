@@ -1,5 +1,4 @@
 import album.Canvas;
-import command.ChangeCircleSize;
 import command.Command;
 import command.Invoker;
 import command.PrintShapes;
@@ -8,10 +7,13 @@ import command.PutShape;
 import command.RemoveShape;
 import command.SnapShotCanvas;
 import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import shape.ICoordinate;
 import shape.IShape;
 import shape.ShapeFactory;
 import shape.twoDCoordinate;
+import view.WebAlbum;
 
 public class Main {
 
@@ -42,7 +44,7 @@ public class Main {
     // Create canvas
     canvas1 = new Canvas(300, 200);
 
-    // Put Circle on canvas
+    // Put Oval on canvas
     System.out.println("Add circle!");
     coordinate = new twoDCoordinate(100, 100);
     circle = factory.getShape("circle", "C", coordinate, red, 10);
@@ -124,6 +126,16 @@ public class Main {
     // Do the command
     invoker.press();
 
+    // ------------- smoke test for view
+    String filenameOut = "test.html";
+    try {
+      PrintWriter writer = new PrintWriter(filenameOut);
+      WebAlbum web = new WebAlbum(writer);
+      web.displaySnapshots(canvas1.getAllSnapshot());
+      writer.close();
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
+    }
 
   }
 

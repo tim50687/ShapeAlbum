@@ -1,9 +1,17 @@
 package view;
 
-import album.Snapshot;
-import java.util.List;
+import java.util.LinkedHashMap;
 
+/**
+ * This interface defines the methods required for displaying a photo album in a web view.
+ */
 public interface IWebAlbum {
 
-  void displaySnapshots(List<Snapshot> snapshots);
+  /**
+   * Displays a list of snapshots in the web view.
+   *
+   * @param snapshots A list of Snapshot objects to be displayed
+   */
+  void displaySnapshots(LinkedHashMap<String, String> snapshots);
+
 }
