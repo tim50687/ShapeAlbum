@@ -1,7 +1,7 @@
 package controller.command;
 
-import album.Canvas;
-import shape.ICoordinate;
+import model.Canvas;
+import model.shape.ICoordinate;
 
 /**
  * The command that move shape in the canvas.

@@ -1,6 +1,6 @@
 package controller;
 
-import album.Canvas;
+import model.Canvas;
 import controller.command.ChangeColorShape;
 import controller.command.ChangeSizeShape;
 import controller.command.Command;
@@ -14,10 +14,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import shape.ICoordinate;
-import shape.IShape;
-import shape.ShapeFactory;
-import shape.twoDCoordinate;
+import model.shape.ICoordinate;
+import model.shape.IShape;
+import model.shape.ShapeFactory;
+import model.shape.twoDCoordinate;
 
 
 /**

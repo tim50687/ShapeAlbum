@@ -1,4 +1,4 @@
-package shape;
+package model.shape;
 
 /**
  * The ICoordinate interface represents a coordinate in a two-dimensional plane.

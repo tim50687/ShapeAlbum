@@ -1,4 +1,4 @@
-package shape;
+package model.shape;
 
 import java.awt.Color;
 
@@ -22,7 +22,7 @@ public interface IShape {
    * @param coordinate the coordinate
    */
   void move(ICoordinate coordinate);
-  
+
   /**
    * Sets the color of the shape.
    *

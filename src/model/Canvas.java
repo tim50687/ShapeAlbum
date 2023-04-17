@@ -1,12 +1,12 @@
-package album;
+package model;
 
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import shape.ICoordinate;
-import shape.IShape;
+import model.shape.ICoordinate;
+import model.shape.IShape;
 
 /**
  * This is a Java class named Canvas that represents a canvas for putting shapes on it.

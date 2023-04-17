@@ -1,6 +1,6 @@
 package controller.command;
 
-import album.Canvas;
+import model.Canvas;
 
 /**
  * The command that print shapes on the canvas.

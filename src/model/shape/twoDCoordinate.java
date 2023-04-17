@@ -1,4 +1,4 @@
-package shape;
+package model.shape;
 
 /**
  * The type 2D coordinate.

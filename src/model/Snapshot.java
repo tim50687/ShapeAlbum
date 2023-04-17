@@ -1,4 +1,4 @@
-package album;
+package model;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.Map;
-import shape.IShape;
+import model.shape.IShape;
 
 /**
  * The Snapshot class represents a snapshot of a collection of shapes at a specific point in time.

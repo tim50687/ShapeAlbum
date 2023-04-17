@@ -1,7 +1,7 @@
 package controller.command;
 
-import album.Canvas;
-import album.Snapshot;
+import model.Canvas;
+import model.Snapshot;
 import java.security.NoSuchAlgorithmException;
 
 /**

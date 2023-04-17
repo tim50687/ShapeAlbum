@@ -1,6 +1,6 @@
 package controller.command;
 
-import album.Canvas;
+import model.Canvas;
 import java.awt.Color;
 
 /**

@@ -1,7 +1,7 @@
 package controller.command;
 
-import album.Canvas;
-import shape.IShape;
+import model.Canvas;
+import model.shape.IShape;
 
 /**
  * The command that Remove shape on the canvas.
