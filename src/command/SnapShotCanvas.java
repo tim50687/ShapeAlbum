@@ -40,6 +40,10 @@ public class SnapShotCanvas implements Command {
     this.canvas.unTakeSnapshot();
   }
 
+  @Override
+  public String toString() {
+    return "Take a snapshot!";
+  }
 }
 
 

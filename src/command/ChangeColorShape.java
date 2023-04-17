@@ -24,7 +24,6 @@ public class ChangeColorShape implements Command {
    */
   public ChangeColorShape(Canvas canvas, String name, Color newColor) {
     this.canvas = canvas;
-
     this.name = name;
     this.newColor = newColor;
   }
@@ -38,6 +37,12 @@ public class ChangeColorShape implements Command {
   @Override
   public void undo() {
     this.canvas.changeColor(this.name, this.previousColor);
+  }
 
+  @Override
+  public String toString() {
+    return String.format("Change %s's color to %s.", this.name,
+        "(" + this.newColor.getRed() + ", " + this.newColor.getGreen() + ", "
+            + this.newColor.getBlue() + ")");
   }
 }

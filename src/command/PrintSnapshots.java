@@ -27,4 +27,9 @@ public class PrintSnapshots implements Command {
   public void undo() {
     return;
   }
+
+  @Override
+  public String toString() {
+    return "Print all snapshots!";
+  }
 }

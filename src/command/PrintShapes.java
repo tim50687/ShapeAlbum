@@ -27,4 +27,9 @@ public class PrintShapes implements Command {
   public void undo() {
     return;
   }
+
+  @Override
+  public String toString() {
+    return "Print all shapes!";
+  }
 }

@@ -34,4 +34,10 @@ public class RemoveShape implements Command {
   public void undo() {
     this.canvas.putShape(this.name, this.shape);
   }
+
+  @Override
+  public String toString() {
+    return String.format("Remove %s from canvas.", this.name);
+  }
+
 }

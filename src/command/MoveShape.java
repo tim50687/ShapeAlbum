@@ -38,4 +38,10 @@ public class MoveShape implements Command {
   public void undo() {
     this.canvas.move(this.name, this.previousCoordinate);
   }
+
+  @Override
+  public String toString() {
+    return String.format("Move %s's coordinate to X: %d, Y: %d.", this.name,
+        this.newCoordinate.getX(), this.newCoordinate.getY());
+  }
 }

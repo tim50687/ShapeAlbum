@@ -35,4 +35,9 @@ public class PutShape implements Command {
   public void undo() {
     this.canvas.removeShape(this.name);
   }
+
+  @Override
+  public String toString() {
+    return String.format("Put %s on canvas.", this.name);
+  }
 }

@@ -54,4 +54,10 @@ public class ChangeSizeShape implements Command {
   public void undo() {
     this.canvas.changeShapeSize(this.name, this.previousWidth, this.previousHeight);
   }
+
+  @Override
+  public String toString() {
+    return String.format("Change %s's size to Width: %d, Height: %d.", this.name, this.newWidth,
+        this.newHeight);
+  }
 }
