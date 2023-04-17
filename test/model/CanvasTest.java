@@ -3,7 +3,6 @@ package model;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import album.Canvas;
 import controller.command.ChangeColorShape;
 import controller.command.ChangeSizeShape;
 import controller.command.Command;
@@ -16,10 +15,10 @@ import controller.command.SnapShotCanvas;
 import java.awt.Color;
 import org.junit.Before;
 import org.junit.Test;
-import shape.ICoordinate;
-import shape.IShape;
-import shape.ShapeFactory;
-import shape.twoDCoordinate;
+import model.shape.ICoordinate;
+import model.shape.IShape;
+import model.shape.ShapeFactory;
+import model.shape.twoDCoordinate;
 
 /**
  * The JUnit test for shape photo album.

@@ -13,8 +13,8 @@
 
 ## About The Project
 
-In this project, I will build an application that helps to create a simple "photo album" from
-shapes. The main functions of the photo album are:
+In this project, I will build an application that helps to create a simple "photo model" from
+shapes. The main functions of the photo model are:
 
 * `Put shape function`: Put the shape on the canvas.
 * `Change shape size function`: Change the size of the shape on the canvas.
@@ -28,8 +28,8 @@ I have chosen the `MVC` (model-View-Controller) pattern in software design, whic
 to implement user interfaces, data, and controlling logic. It emphasizes a separation between the
 software's business logic and display.
 
-For part 1 of the shape album, I will implement the model part, which focuses on implementing the
-functionality for the shape album. The model holds all the data, state, and application logic.
+For part 1 of the shape model, I will implement the model part, which focuses on implementing the
+functionality for the shape model. The model holds all the data, state, and application logic.
 
 ## Design Pattern
 

@@ -168,8 +168,8 @@ public class Canvas {
       throw new IllegalArgumentException("Shapes cannot be null");
     }
     // Check the null string and empty string
-    if (description == null || description.equals("")) {
-      throw new IllegalArgumentException("Description cannot be empty string or null");
+    if (description == null) {
+      throw new IllegalArgumentException("Description cannot be null");
     }
     Snapshot snapshot = new Snapshot(description, shapes);
     // Use toString() to freeze the snapshot and store it

@@ -1,8 +1,7 @@
 package controller.command;
 
-import model.Canvas;
-import model.Snapshot;
 import java.security.NoSuchAlgorithmException;
+import model.Canvas;
 
 /**
  * The command that take snapshot of the canvas to record current status.
@@ -28,8 +27,7 @@ public class SnapShotCanvas implements Command {
   @Override
   public void execute() {
     try {
-      Snapshot newSnapshot = this.canvas.takeSnapshot(this.description, this.canvas.getAllShape());
-      System.out.println(newSnapshot);
+      this.canvas.takeSnapshot(this.description, this.canvas.getAllShape());
     } catch (NoSuchAlgorithmException e) {
       throw new RuntimeException(e);
     }
