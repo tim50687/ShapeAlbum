@@ -2,7 +2,6 @@ package controller;
 
 import album.Canvas;
 import command.Command;
-import command.PutShape;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +11,6 @@ import java.util.Scanner;
 import shape.ICoordinate;
 import shape.IShape;
 import shape.ShapeFactory;
-import shape.twoDCoordinate;
 
 public class FileParser {
 
@@ -59,17 +57,17 @@ public class FileParser {
         String command = words[0];
         switch (command.toUpperCase()) {
           case "SHAPE":
-            coordinate = new twoDCoordinate(Double.parseDouble(words[3]),
-                Double.parseDouble(words[4]));
-            color = new Color(Integer.parseInt(words[7]), Integer.parseInt(words[8]),
-                Integer.parseInt(words[9]));
-            name = words[1];
-            type = words[2];
-            width = Integer.parseInt(words[5]);
-            height = Integer.parseInt(words[6]);
-            shape = factory.getShape(type, name, coordinate, color, width, height);
-            commandClass = new PutShape(this.canvas, type, name, shape);
-            this.commands.add(commandClass);
+//            coordinate = new twoDCoordinate(Double.parseDouble(words[3]),
+//                Double.parseDouble(words[4]));
+//            color = new Color(Integer.parseInt(words[7]), Integer.parseInt(words[8]),
+//                Integer.parseInt(words[9]));
+//            name = words[1];
+//            type = words[2];
+//            width = Integer.parseInt(words[5]);
+//            height = Integer.parseInt(words[6]);
+//            shape = factory.getShape(type, name, coordinate, color, width, height);
+//            commandClass = new PutShape(this.canvas, type, name, shape);
+//            this.commands.add(commandClass);
             break;
           case "MOVE":
           case "COLOR":

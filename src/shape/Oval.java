@@ -20,13 +20,16 @@ public class Oval extends AbstractShape {
   public Oval(String name, ICoordinate coordinate, Color color, int width, int height) {
     super(name, coordinate, color, width, height);
   }
-  
+
   @Override
   public String toString() {
-    return String.format("Name: %s\nType: %s\n%s, Width: %d, Length: %d, Color: (%d, %d, %d)",
+    return String.format("Name: %s\nType: %s\n%s, Width: %d, Height: %d, Color: (%d, %d, %d)",
         this.name,
         this.getClass().getSimpleName(),
         this.coordinate,
-        this.width, this.height, this.color.getRed(), this.color.getGreen(), this.color.getBlue());
+        this.width, this.height, this.color.getRed(), this.color.getGreen(),
+        this.color.getBlue());
+
   }
+
 }
