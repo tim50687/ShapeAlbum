@@ -3,7 +3,7 @@ package controller;
 import static org.junit.Assert.assertEquals;
 
 import album.Canvas;
-import command.Command;
+import controller.command.Command;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
