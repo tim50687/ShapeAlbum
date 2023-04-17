@@ -19,6 +19,11 @@ import shape.IShape;
 import shape.ShapeFactory;
 import shape.twoDCoordinate;
 
+
+/**
+ * The FileParser class reads a file containing commands for modifying a Canvas object and generates
+ * a list of Command objects that can be executed to apply the modifications to the Canvas.
+ */
 public class FileParser {
 
   Scanner fileIn; // connection to input file
@@ -26,14 +31,23 @@ public class FileParser {
   List<Command> commands; // Commands to be executed
   Canvas canvas; // Command need canvas
 
-  public FileParser(Scanner fileIn, String filenameIn, Canvas canvas) {
-    this.fileIn = fileIn;
+  /**
+   * Instantiates a new File parser.
+   *
+   * @param filenameIn the filename in
+   * @param canvas     the canvas
+   */
+  public FileParser(String filenameIn, Canvas canvas) {
     this.filenameIn = filenameIn;
+    this.fileIn = new Scanner(this.filenameIn);
     this.commands = new ArrayList<>();
     this.canvas = canvas;
   }
 
-  public List<Command> getCommands() {
+  /**
+   * Parse commands.
+   */
+  public void parseCommands() {
     File inputfile = new File(this.filenameIn); // Get the input file
     // Read each command at each iteration and store it in an array
     String line = null;
@@ -109,12 +123,19 @@ public class FileParser {
             this.commands.add(commandClass);
             break;
         }
-        System.out.println(words[0]);
       }
     } catch (FileNotFoundException e) {
-      throw new RuntimeException(e);
+      System.out.println("File not found: " + this.filenameIn);
     }
 
+  }
+
+  /**
+   * Gets commands.
+   *
+   * @return the commands
+   */
+  public List<Command> getCommands() {
     return this.commands;
   }
 
