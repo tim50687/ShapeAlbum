@@ -1,4 +1,4 @@
-package command;
+package controller.command;
 
 import album.Canvas;
 import shape.ICoordinate;

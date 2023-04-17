@@ -1,4 +1,4 @@
-package command;
+package controller.command;
 
 /**
  * The Invoker class represents an object that invokes a Command object to perform an action.

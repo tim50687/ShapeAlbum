@@ -1,4 +1,4 @@
-package command;
+package controller.command;
 
 /**
  * The Command interface represents command that can be executed and undone.
