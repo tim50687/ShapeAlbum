@@ -8,8 +8,8 @@ import java.util.LinkedHashMap;
 public class WebAlbum implements IWebAlbum {
 
   private PrintWriter fileOut; // HTML file connection
-  private static final int CANVAS_WIDTH = 1600;
-  private static final int CANVAS_HEIGHT = 900;
+  private static final int SNAPSHOT_WIDTH = 1600;
+  private static final int SNAPSHOT_HEIGHT = 900;
 
   // Detail for snapshot title
   private static final int SNAPSHOT_TITLE_UPPER_LEFT_X = 5;
@@ -48,8 +48,6 @@ public class WebAlbum implements IWebAlbum {
 
   @Override
   public void displaySnapshots(LinkedHashMap<String, String> snapshots) {
-    int numberOfSnapshots; // Check how many snapshots that need to be displayed
-    numberOfSnapshots = snapshots.size();
     this.fileOut.println("<html>");
     this.fileOut.println("<head>");
     this.fileOut.println("</head>");
@@ -70,8 +68,8 @@ public class WebAlbum implements IWebAlbum {
 
     // Put the shape in snapshot to the web album
     for (String snapshot : snapshots.values()) {
-      this.fileOut.println(String.format("<svg width = \"%d\" height= \"%d\">", CANVAS_WIDTH,
-          CANVAS_HEIGHT));
+      this.fileOut.println(String.format("<svg width = \"%d\" height= \"%d\">", SNAPSHOT_WIDTH,
+          SNAPSHOT_HEIGHT));
       count += 1;
       String[] lines = snapshot.split("\n");
       for (String line : lines) {
