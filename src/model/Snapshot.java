@@ -58,7 +58,7 @@ public class Snapshot {
   public Snapshot(String description, Map<String, IShape> shapes) throws NoSuchAlgorithmException {
     long time = System.nanoTime();
     this.ID = toHexString(getSHA(String.valueOf(time)));
-    this.timeStamp = new Timestamp(time / 1000000L);
+    this.timeStamp = new Timestamp(System.currentTimeMillis());
     this.description = description;
     this.shapes = shapes;
   }
