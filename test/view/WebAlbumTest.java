@@ -88,6 +88,7 @@ public class WebAlbumTest {
           + "</svg>\n"
           + "</body>\n"
           + "</html>\n", test);
+      fileIn.close();
     } catch (IOException e) {
       System.out.println(e.getMessage());
     }
