@@ -124,6 +124,7 @@ public class FileParser {
             break;
         }
       }
+      this.fileIn.close();
     } catch (FileNotFoundException e) {
       System.out.println("File not found: " + this.filenameIn);
     }
