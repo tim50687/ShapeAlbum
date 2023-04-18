@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 
+/**
+ * The type Web album.
+ */
 public class WebAlbum implements IWebAlbum {
 
   private PrintWriter fileOut; // HTML file connection
@@ -37,6 +40,11 @@ public class WebAlbum implements IWebAlbum {
   private static final String SNAPSHOT_TIMESTAMP_COLOR = "(0, 0, 0)";
 
 
+  /**
+   * Instantiates a new Web album.
+   *
+   * @param outputFile the output file
+   */
   public WebAlbum(String outputFile) {
     File file = new File(outputFile); // Will create file if not exist
     try {
@@ -151,8 +159,7 @@ public class WebAlbum implements IWebAlbum {
     this.fileOut.println("</html>");
 
     System.out.println("HTML file is processed!");
+    // Close the output stream
     this.fileOut.close();
   }
-
-
 }
