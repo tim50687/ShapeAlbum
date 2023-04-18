@@ -49,7 +49,7 @@ public class Controller {
   /**
    * Send snapshots to view.
    */
-  public void sendSnapshotsToView() {
+  public void sendSnapshotsToWebView() {
     this.view.displaySnapshots(this.canvas.getAllSnapshot());
   }
 
