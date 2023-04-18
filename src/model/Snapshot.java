@@ -56,9 +56,9 @@ public class Snapshot {
    * @throws NoSuchAlgorithmException the no such algorithm exception
    */
   public Snapshot(String description, Map<String, IShape> shapes) throws NoSuchAlgorithmException {
-    Timestamp time = new Timestamp(System.currentTimeMillis());
-    this.ID = toHexString(getSHA(time.toString()));
-    this.timeStamp = time;
+    long time = System.nanoTime();
+    this.ID = toHexString(getSHA(String.valueOf(time)));
+    this.timeStamp = new Timestamp(time / 1000000L);
     this.description = description;
     this.shapes = shapes;
   }
