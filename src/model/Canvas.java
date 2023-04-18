@@ -2,7 +2,6 @@ package model;
 
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import model.shape.ICoordinate;
@@ -14,7 +13,7 @@ import model.shape.IShape;
 public class Canvas {
 
   // Shapes that stored in the Canvas
-  private Map<String, IShape> shapes;
+  private LinkedHashMap<String, IShape> shapes;
   // Snapshots that stored in the Canvas
   private LinkedHashMap<String, String> snapshots;
 
@@ -32,7 +31,7 @@ public class Canvas {
     if (length < 0 || width < 0) {
       throw new IllegalArgumentException("Size cannot be negative value");
     }
-    this.shapes = new HashMap<>();
+    this.shapes = new LinkedHashMap<>();
     this.snapshots = new LinkedHashMap<>();
     this.length = length;
     this.width = width;
