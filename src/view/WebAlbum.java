@@ -36,9 +36,6 @@ public class WebAlbum implements IWebAlbum {
   private static final int SNAPSHOT_TIMESTAMP_FONT = 15;
   private static final String SNAPSHOT_TIMESTAMP_COLOR = "(0, 0, 0)";
 
-  // The space between snapshot
-  private static final int SNAPSHOT_SPACE = 20;
-
 
   public WebAlbum(String outputFile) {
     File file = new File(outputFile); // Will create file if not exist
@@ -70,10 +67,11 @@ public class WebAlbum implements IWebAlbum {
     int r = 0;
     int g = 0;
     int b = 0;
-    this.fileOut.println(String.format("<svg width = \"%d\" height= \"%d\">", CANVAS_WIDTH,
-        CANVAS_HEIGHT * numberOfSnapshots));
+
     // Put the shape in snapshot to the web album
     for (String snapshot : snapshots.values()) {
+      this.fileOut.println(String.format("<svg width = \"%d\" height= \"%d\">", CANVAS_WIDTH,
+          CANVAS_HEIGHT));
       count += 1;
       String[] lines = snapshot.split("\n");
       for (String line : lines) {
@@ -90,29 +88,25 @@ public class WebAlbum implements IWebAlbum {
           }
           // Whenever get the description, then write the title (timestamp, description) of snapshot on web
           fileOut.println(
-              "<rect x=\"" + SNAPSHOT_TITLE_UPPER_LEFT_X + "\" y=\"" + (SNAPSHOT_TITLE_UPPER_LEFT_Y
-                  + (CANVAS_HEIGHT * (count - 1)))
+              "<rect x=\"" + SNAPSHOT_TITLE_UPPER_LEFT_X + "\" y=\"" + SNAPSHOT_TITLE_UPPER_LEFT_Y
                   + "\" width=\""
                   + SNAPSHOT_TITLE_WIDTH + "\" height=\"" + SNAPSHOT_TITLE_HEIGHT
                   + "\" stroke=\"red\" stroke-width=\"1\" fill=\"rgb" + SNAPSHOT_TITLE_COLOR
                   + "\" />");
           fileOut.println(
-              "<text x=\"" + SNAPSHOT_SUBTITLE_X + "\" y=\"" + (SNAPSHOT_SUBTITLE_Y + (
-                  CANVAS_HEIGHT * (count - 1)))
+              "<text x=\"" + SNAPSHOT_SUBTITLE_X + "\" y=\"" + SNAPSHOT_SUBTITLE_Y
                   + "\" font-family=\"" + "Garamond"
                   + "\" font-size=\"" + SNAPSHOT_SUBTITLE_FONT + "\" fill=\"rgb"
                   + SNAPSHOT_SUBTITLE_COLOR + "\">Snapshot No."
                   + count + "</text>");
           fileOut.println(
-              "<text x=\"" + SNAPSHOT_DESCRIPTION_X + "\" y=\"" + (SNAPSHOT_DESCRIPTION_Y + (
-                  CANVAS_HEIGHT * (count - 1)))
+              "<text x=\"" + SNAPSHOT_DESCRIPTION_X + "\" y=\"" + SNAPSHOT_DESCRIPTION_Y
                   + "\" font-family=\"" + "Garamond"
                   + "\" font-size=\"" + SNAPSHOT_DESCRIPTION_FONT + "\" fill=\"rgb"
                   + SNAPSHOT_DESCRIPTION_COLOR + "\">"
                   + description + "</text>");
           fileOut.println(
-              "<text x=\"" + SNAPSHOT_TIMESTAMP_X + "\" y=\"" + (SNAPSHOT_TIMESTAMP_Y + (
-                  CANVAS_HEIGHT * (count - 1)))
+              "<text x=\"" + SNAPSHOT_TIMESTAMP_X + "\" y=\"" + SNAPSHOT_TIMESTAMP_Y
                   + "\" font-family=\"" + "Garamond"
                   + "\" font-size=\"" + SNAPSHOT_TIMESTAMP_FONT + "\" fill=\"rgb"
                   + SNAPSHOT_TIMESTAMP_COLOR + "\">"
@@ -138,24 +132,22 @@ public class WebAlbum implements IWebAlbum {
           if (type.equalsIgnoreCase("rectangle")) {
             shape =
                 "<rect x=\"" + (x + SNAPSHOT_TITLE_UPPER_LEFT_X) + "\" y=\"" + (y
-                    + SNAPSHOT_TITLE_UPPER_LEFT_Y + SNAPSHOT_TITLE_HEIGHT + (CANVAS_HEIGHT * (count
-                    - 1))) + "\" width=\"" + width + "\" height=\"" + height
+                    + SNAPSHOT_TITLE_UPPER_LEFT_Y + SNAPSHOT_TITLE_HEIGHT) + "\" width=\"" + width
+                    + "\" height=\"" + height
                     + "\" fill=\"rgb" + "(" + r + ", " + g + ", " + b + ")" + "\" />";
           } else if (type.equalsIgnoreCase("Oval")) {
             shape =
                 "<ellipse cx=\"" + (x + SNAPSHOT_TITLE_UPPER_LEFT_X) + "\" cy=\""
-                    + (y + SNAPSHOT_TITLE_UPPER_LEFT_Y + SNAPSHOT_TITLE_HEIGHT + (CANVAS_HEIGHT * (
-                    count - 1))) + "\" rx=\""
+                    + (y + SNAPSHOT_TITLE_UPPER_LEFT_Y + SNAPSHOT_TITLE_HEIGHT) + "\" rx=\""
                     + width + "\" ry=\"" + height
                     + "\" fill=\"rgb" + "(" + r + ", " + g + ", " + b + ")" + "\" />";
           }
           fileOut.println(shape);
         }
+
       }
-
+      this.fileOut.println("</svg>");
     }
-
-    this.fileOut.println("</svg>");
 
     this.fileOut.println("</body>");
     this.fileOut.println("</html>");
