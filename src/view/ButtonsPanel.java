@@ -5,11 +5,14 @@ import javax.swing.JPanel;
 
 public class ButtonsPanel extends JPanel {
 
+  // Has the album to change its state
+  private GraphicalAlbum graphicalAlbum;
+
   // Dimension for button panel
   private static final int BUTTONS_PANEL_X = 0;
-  private static final int BUTTONS_PANEL_Y = 700;
+  private static final int BUTTONS_PANEL_Y = 800;
   private static final int BUTTONS_PANEL_WIDTH = 1600;
-  private static final int BUTTONS_PANEL_HEIGHT = 200;
+  private static final int BUTTONS_PANEL_HEIGHT = 100;
 
   // Background color for panel
   private static final int BUTTONS_PANEL_R = 255;
@@ -22,16 +25,17 @@ public class ButtonsPanel extends JPanel {
   private final SearchButton searchButton;
   private final QuitButton quitButton;
 
-  public ButtonsPanel() {
+  public ButtonsPanel(GraphicalAlbum graphicalAlbum) {
     super();
     this.setBackground(new Color(BUTTONS_PANEL_R, BUTTONS_PANEL_G, BUTTONS_PANEL_B));
     this.setBounds(BUTTONS_PANEL_X, BUTTONS_PANEL_Y, BUTTONS_PANEL_WIDTH, BUTTONS_PANEL_HEIGHT);
     this.setLayout(null);
+    this.graphicalAlbum = graphicalAlbum;
 
     // Add button on the panel
-    nextButton = new NextButton();
-    prevButton = new PrevButton();
-    searchButton = new SearchButton();
+    nextButton = new NextButton(this.graphicalAlbum);
+    prevButton = new PrevButton(this.graphicalAlbum);
+    searchButton = new SearchButton(this.graphicalAlbum);
     quitButton = new QuitButton();
     this.add(this.nextButton);
     this.add(this.prevButton);

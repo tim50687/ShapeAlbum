@@ -4,6 +4,9 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * The QuitButton class represents a button used to exit the application when clicked.
+ */
 public class QuitButton extends JButton {
 
   // Dimension for next button
@@ -20,7 +23,7 @@ public class QuitButton extends JButton {
     this.setBorder(BorderFactory.createEtchedBorder());
     ImageIcon quit = new ImageIcon(path);
     this.setIcon(quit);
+    // Make action listener
     this.addActionListener(e -> System.exit(0));
   }
-
 }
