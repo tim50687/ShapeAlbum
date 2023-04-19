@@ -4,7 +4,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class quitButton extends JButton {
+public class QuitButton extends JButton {
 
   // Dimension for next button
   private static final int BUTTONS_X = 1230;
@@ -15,7 +15,7 @@ public class quitButton extends JButton {
   // Image path
   private static final String path = "./src/assets/buttons/exit.png";
 
-  public quitButton() {
+  public QuitButton() {
     this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
     this.setBorder(BorderFactory.createEtchedBorder());
     ImageIcon next = new ImageIcon(path);

@@ -3,7 +3,7 @@ package view;
 import java.awt.Color;
 import javax.swing.JPanel;
 
-public class buttonsPanel extends JPanel {
+public class ButtonsPanel extends JPanel {
 
   // Dimension for button panel
   private static final int BUTTONS_PANEL_X = 0;
@@ -17,7 +17,8 @@ public class buttonsPanel extends JPanel {
   private static final int BUTTONS_PANEL_B = 225;
 
   // Buttons
-  public buttonsPanel() {
+
+  public ButtonsPanel() {
     super();
     this.setBackground(new Color(BUTTONS_PANEL_R, BUTTONS_PANEL_G, BUTTONS_PANEL_B));
     this.setBounds(BUTTONS_PANEL_X, BUTTONS_PANEL_Y, BUTTONS_PANEL_WIDTH, BUTTONS_PANEL_HEIGHT);
