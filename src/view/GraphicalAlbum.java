@@ -1,90 +1,46 @@
 package view;
 
 import java.awt.Color;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
 
-  // Create button
-  private JButton next;
-  private JButton back;
-  private JButton search;
-  private JButton quit;
-
-  // Create Panels
-  private JPanel timestamp;
-  private JPanel canvas;
-  private JPanel buttonPanel;
+  // Panels
+  private CanvasPanel canvasPanel;
+  private ButtonsPanel buttonPanel;
 
   // Dimension for snapshot
   private static final int SNAPSHOT_WIDTH = 1600;
   private static final int SNAPSHOT_HEIGHT = 900;
 
-  public GraphicalAlbum() {
+  // Snapshots, make it to a list
+  private final List<String> snapshots;
+
+  public GraphicalAlbum(LinkedHashMap<String, String> snapshots) {
     // Frame setUp
     super();
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setVisible(true);
     this.setResizable(false); // Fixed size
     this.setLayout(null);
     this.setSize(SNAPSHOT_WIDTH, SNAPSHOT_HEIGHT);
+    this.setLocationRelativeTo(null);
     this.getContentPane().setBackground(new Color(200, 255, 255));
 
-    // Panel Setup
-    buttonPanel = new JPanel();
-    buttonPanel.setBackground(new Color(255, 228, 225));
-    buttonPanel.setBounds(0, 700, 1600, 200);
-    buttonPanel.setLayout(null);
-
-    canvas = new JPanel();
-    canvas.setBackground(new Color(200, 255, 255));
-    canvas.setBounds(0, 50, 1600, 800);
-    canvas.setLayout(null);
-
-    timestamp = new JPanel();
-    timestamp.setBackground(new Color(255, 228, 225));
-    timestamp.setBounds(0, 0, 1600, 50);
-    timestamp.setLayout(null);
-
-    // Button setUp
-    this.next = new JButton();
-    this.next.setBounds(590, 60, 70, 70);
-    this.next.setBorder(BorderFactory.createEtchedBorder());
-    ImageIcon next = new ImageIcon("./src/assets/buttons/next.png");
-    this.next.setIcon(next);
-
-    this.back = new JButton();
-    this.back.setBounds(270, 60, 70, 70);
-    this.back.setBorder(BorderFactory.createEtchedBorder());
-    ImageIcon back = new ImageIcon("./src/assets/buttons/previous.png");
-    this.back.setIcon(back);
-
-    this.search = new JButton();
-    this.search.setBounds(910, 60, 70, 70);
-    this.search.setBorder(BorderFactory.createEtchedBorder());
-    ImageIcon search = new ImageIcon("./src/assets/buttons/select.png");
-    this.search.setIcon(search);
-
-    this.quit = new JButton();
-    this.quit.setBounds(1230, 60, 80, 80);
-    this.quit.setBorder(BorderFactory.createEtchedBorder());
-    ImageIcon quit = new ImageIcon("./src/assets/buttons/exit.png");
-    this.quit.setIcon(quit);
-
-    // Add button on buton panel
-    buttonPanel.add(this.next);
-    buttonPanel.add(this.back);
-    buttonPanel.add(this.search);
-    buttonPanel.add(this.quit);
+    // Add snapshots to Graphical album
+    this.snapshots = new ArrayList<>(snapshots.values());
 
     // Add panel on the frame
+    this.buttonPanel = new ButtonsPanel();
     this.add(buttonPanel);
-    this.add(canvas);
-    this.add(timestamp);
+    // By default, put the fist snapshot on the canvas
+    this.canvasPanel = new CanvasPanel(this.snapshots.get(0));
+    this.add(canvasPanel);
+
+    // Set frame visible to true
+    this.setVisible(true);
   }
 
   @Override
@@ -112,8 +68,4 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
 
   }
 
-  @Override
-  public void quit() {
-
-  }
 }
