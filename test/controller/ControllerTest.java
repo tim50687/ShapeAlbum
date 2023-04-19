@@ -36,7 +36,7 @@ public class ControllerTest {
    */
   @Test
   public void testRunOnDemo() {
-    inputFile = "demo_input.txt";
+    inputFile = "./src/assets/commandinputfile/demo_input.txt";
     controller = new Controller(webAlbum, inputFile, canvas);
     controller.run();
     // Test the number of snapshots
@@ -58,7 +58,7 @@ public class ControllerTest {
    */
   @Test
   public void testRunOnBuildings() {
-    inputFile = "buildings.txt";
+    inputFile = "./src/assets/commandinputfile/buildings.txt";
     controller = new Controller(webAlbum, inputFile, canvas);
     controller.run();
     // Test the number of snapshots
@@ -108,7 +108,7 @@ public class ControllerTest {
    */
   @Test
   public void testSendSnapshotsToWebView() {
-    inputFile = "demo_input.txt";
+    inputFile = "./src/assets/commandinputfile/demo_input.txt";
     webAlbum = new WebAlbum(outputFile);
     controller = new Controller(webAlbum, inputFile, canvas);
     controller.run();

@@ -32,7 +32,7 @@ public class FileParserTest {
    */
   @Test
   public void testParseCommands() {
-    parser = new FileParser("demo_input.txt", canvas);
+    parser = new FileParser("./src/assets/commandinputfile/demo_input.txt", canvas);
     parser.parseCommands();
     commands = parser.getCommands();
     assertEquals(
@@ -45,7 +45,7 @@ public class FileParserTest {
    */
   @Test
   public void testParseCommandsBuilding() {
-    parser = new FileParser("buildings.txt", canvas);
+    parser = new FileParser("./src/assets/commandinputfile/buildings.txt", canvas);
     parser.parseCommands();
     commands = parser.getCommands();
     assertEquals(
@@ -61,8 +61,9 @@ public class FileParserTest {
     // Redirect the console output to the outcontent stream
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outContent));
-    parser = new FileParser("building.txt", canvas);
+    parser = new FileParser("./src/assets/commandinputfile/building.txt", canvas);
     parser.parseCommands();
-    assertEquals("File not found: building.txt\n", outContent.toString());
+    assertEquals("File not found: ./src/assets/commandinputfile/building.txt\n",
+        outContent.toString());
   }
 }

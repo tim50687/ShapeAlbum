@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class WebAlbumTest {
 
-  private final String inputFile = "demo_input.txt";
+  private final String inputFile = "./src/assets/commandinputfile/demo_input.txt";
   private final String outputFile = "./test/view/outputTest.html";
   private Canvas canvas;
   private WebAlbum webAlbum;
