@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
 
   // Panels
-  private final CanvasPanel canvasPanel;
-  private final ButtonsPanel buttonPanel;
+  private CanvasPanel canvasPanel;
+  private ButtonsPanel buttonPanel;
 
   // Dimension for snapshot
   private static final int SNAPSHOT_WIDTH = 1600;
@@ -25,8 +25,8 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
 
   // Snapshots, make it to a list
   private int currentSnapshotIndex = 0;
-  private final List<String> snapshotTimestamp; // for search button
-  private final List<String> snapshots;
+  private List<String> snapshotTimestamp; // for search button
+  private List<String> snapshots;
 
   private List<String> getSnapshotTimestamp(List<String> snapshots) {
     List<String> timestamps = new ArrayList<>();
@@ -42,7 +42,7 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     return timestamps;
   }
 
-  public GraphicalAlbum(LinkedHashMap<String, String> snapshots) {
+  public GraphicalAlbum() {
     // Frame setUp
     super();
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,19 +52,25 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     this.setLocationRelativeTo(null);
     this.getContentPane().setBackground(
         new Color(GRAPHICAL_ALBUM_PANEL_R, GRAPHICAL_ALBUM_PANEL_G, GRAPHICAL_ALBUM_PANEL_B));
+    // Add button panel on the frame
+    this.buttonPanel = new ButtonsPanel(this);
+    this.add(buttonPanel);
 
+    this.setVisible(false);
+  }
+
+  @Override
+  public void setSnapshots(LinkedHashMap<String, String> snapshots) {
     // Add snapshots to Graphical album
     this.snapshots = new ArrayList<>(snapshots.values());
     this.snapshotTimestamp = getSnapshotTimestamp(this.snapshots);
 
-    // Add panel on the frame
-    this.buttonPanel = new ButtonsPanel(this);
-    this.add(buttonPanel);
+    // Add canvas panel on the frame
     // By default, put the fist snapshot on the canvas
     this.canvasPanel = new CanvasPanel(this.snapshots.get(currentSnapshotIndex));
     this.add(canvasPanel);
 
-    // Set frame visible to true
+    // Frame can be seen after add on the canvas panel
     this.setVisible(true);
   }
 
@@ -97,7 +103,7 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     // Make selections available
     Object[] possibilities = new Object[this.snapshots.size()];
     for (int i = 0; i < this.snapshots.size(); i++) {
-      possibilities[i] = this.snapshotTimestamp.get(i);
+      possibilities[i] = String.format("No.%d snapshot", i + 1);
     }
     // Get user's selection
     String answer = (String) JOptionPane.showInputDialog(
@@ -109,7 +115,14 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
         possibilities,
         possibilities[this.currentSnapshotIndex]);
     // Set the currentSnapshotIndex to the snapshot chosen by the user
-    this.currentSnapshotIndex = this.snapshotTimestamp.indexOf(answer);
+    int index = -1;
+    for (int i = 0; i < possibilities.length; i++) {
+      if (possibilities[i] == answer) {
+        index = i;
+        break;
+      }
+    }
+    this.currentSnapshotIndex = index;
     this.canvasPanel.setSnapshot(this.snapshots.get(currentSnapshotIndex));
     this.canvasPanel.repaint();
   }

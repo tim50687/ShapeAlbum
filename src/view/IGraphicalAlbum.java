@@ -1,16 +1,18 @@
 package view;
 
+import java.util.LinkedHashMap;
+
 /**
  * This interface defines the methods required for displaying a photo album in a graphical view.
  */
 public interface IGraphicalAlbum {
 
   /**
-   * Displays a snapshot in the web view.
+   * Sets the snapshots data to be displayed in the graphical album.
    *
-   * @param snapshot A String representing the snapshot to be displayed
+   * @param snapshots a LinkedHashMap of snapshots to be displayed
    */
-  void displaySnapshot(String snapshot);
+  void setSnapshots(LinkedHashMap<String, String> snapshots);
 
   /**
    * Advances to the next snapshot on the album.
@@ -27,13 +29,5 @@ public interface IGraphicalAlbum {
    */
   void searchSnapshot();
 
-  /**
-   * Displays an error message in the view.
-   */
-  void displayError();
 
-  /**
-   * Quits the application and closes the view.
-   */
-  void quit();
 }
