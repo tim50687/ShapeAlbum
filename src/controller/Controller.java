@@ -5,6 +5,7 @@ import controller.command.Invoker;
 import java.util.ArrayList;
 import java.util.List;
 import model.Canvas;
+import view.IGraphicalAlbum;
 import view.IWebAlbum;
 
 /**
@@ -13,7 +14,8 @@ import view.IWebAlbum;
 public class Controller {
 
   private Canvas canvas; // Model
-  private IWebAlbum view; // View -> output
+  private IWebAlbum webAlbum; // View -> output
+  private IGraphicalAlbum graphicalAlbum; // View -> output
   private String inputFileName; // View -> Input
   private FileParser fileParser;
   private List<Command> commands; // List of commands should be executed
@@ -21,12 +23,14 @@ public class Controller {
   /**
    * Instantiates a new Controller.
    *
-   * @param view      the view
+   * @param webAlbum  the web album
    * @param inputFile the input file
    * @param canvas    the canvas
    */
-  public Controller(IWebAlbum view, String inputFile, Canvas canvas) {
-    this.view = view;
+  public Controller(IWebAlbum webAlbum, IGraphicalAlbum graphicalAlbum, String inputFile,
+      Canvas canvas) {
+    this.webAlbum = webAlbum;
+    this.graphicalAlbum = graphicalAlbum;
     this.canvas = canvas;
     this.inputFileName = inputFile;
     this.fileParser = new FileParser(this.inputFileName, this.canvas);
@@ -50,7 +54,11 @@ public class Controller {
    * Send snapshots to view.
    */
   public void sendSnapshotsToWebView() {
-    this.view.displaySnapshots(this.canvas.getAllSnapshot());
+    this.webAlbum.displaySnapshots(this.canvas.getAllSnapshot());
+  }
+
+  public void sendSnapshotsToGraphicalView() {
+    this.graphicalAlbum.setSnapshots(this.canvas.getAllSnapshot());
   }
 
 }
