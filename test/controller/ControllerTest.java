@@ -9,6 +9,8 @@ import java.util.regex.Pattern;
 import model.Canvas;
 import org.junit.Before;
 import org.junit.Test;
+import view.GraphicalAlbum;
+import view.IGraphicalAlbum;
 import view.IWebAlbum;
 import view.WebAlbum;
 
@@ -22,6 +24,7 @@ public class ControllerTest {
   private String inputFile;
   private final String outputFile = "./test/controller/outputTest.html";
   private IWebAlbum webAlbum;
+  private IGraphicalAlbum graphicalAlbum;
 
   /**
    * Sets up.
@@ -29,6 +32,8 @@ public class ControllerTest {
   @Before
   public void setUp() {
     canvas = new Canvas(1600, 900);
+    graphicalAlbum = new GraphicalAlbum();
+
   }
 
   /**
@@ -37,7 +42,7 @@ public class ControllerTest {
   @Test
   public void testRunOnDemo() {
     inputFile = "./src/assets/commandinputfile/demo_input.txt";
-    controller = new Controller(webAlbum, inputFile, canvas);
+    controller = new Controller(webAlbum, graphicalAlbum, inputFile, canvas);
     controller.run();
     // Test the number of snapshots
     assertEquals(4, canvas.getAllSnapshot().size());
@@ -59,7 +64,7 @@ public class ControllerTest {
   @Test
   public void testRunOnBuildings() {
     inputFile = "./src/assets/commandinputfile/buildings.txt";
-    controller = new Controller(webAlbum, inputFile, canvas);
+    controller = new Controller(webAlbum, graphicalAlbum, inputFile, canvas);
     controller.run();
     // Test the number of snapshots
     assertEquals(3, canvas.getAllSnapshot().size());
@@ -110,7 +115,7 @@ public class ControllerTest {
   public void testSendSnapshotsToWebView() {
     inputFile = "./src/assets/commandinputfile/demo_input.txt";
     webAlbum = new WebAlbum(outputFile);
-    controller = new Controller(webAlbum, inputFile, canvas);
+    controller = new Controller(webAlbum, graphicalAlbum, inputFile, canvas);
     controller.run();
     controller.sendSnapshotsToWebView();
     try {
@@ -119,7 +124,7 @@ public class ControllerTest {
       String test = new String(data);
       // Remove the timestamp
       Pattern pattern = Pattern.compile(
-          "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3}"); // the regex pattern
+          "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{2,3}"); // the regex pattern
       Matcher matcher;
       matcher = pattern.matcher(test);
       test = matcher.replaceAll("");

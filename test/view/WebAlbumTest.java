@@ -19,7 +19,8 @@ public class WebAlbumTest {
   private final String inputFile = "./src/assets/commandinputfile/demo_input.txt";
   private final String outputFile = "./test/view/outputTest.html";
   private Canvas canvas;
-  private WebAlbum webAlbum;
+  private IWebAlbum webAlbum;
+  private IGraphicalAlbum graphicalAlbum;
   private Controller controller;
 
 
@@ -30,7 +31,8 @@ public class WebAlbumTest {
   public void setUp() {
     canvas = new Canvas(1600, 800);
     webAlbum = new WebAlbum(outputFile);
-    controller = new Controller(webAlbum, inputFile, canvas);
+    graphicalAlbum = new GraphicalAlbum();
+    controller = new Controller(webAlbum, graphicalAlbum, inputFile, canvas);
     // Do all the command from the input file
     controller.run();
   }
@@ -47,7 +49,7 @@ public class WebAlbumTest {
       String test = new String(data);
       // Remove the timestamp
       Pattern pattern = Pattern.compile(
-          "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3}"); // the regex pattern
+          "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{2,3}"); // the regex pattern
       Matcher matcher;
       matcher = pattern.matcher(test);
       test = matcher.replaceAll("");
