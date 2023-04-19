@@ -54,17 +54,11 @@ public class WebAlbum implements IWebAlbum {
     }
   }
 
-  @Override
-  public void displaySnapshots(LinkedHashMap<String, String> snapshots) {
-    this.fileOut.println("<html>");
-    this.fileOut.println("<head>");
-    this.fileOut.println("</head>");
-    this.fileOut.println("<body>");
-
+  private void addCommandToHTML(LinkedHashMap<String, String> snapshots) {
     // Do the command
     int count = 0;
     String timestamp = "";
-    String description = "";
+    String description;
     String type = "";
     int x = 0;
     int y = 0;
@@ -154,6 +148,17 @@ public class WebAlbum implements IWebAlbum {
       }
       this.fileOut.println("</svg>");
     }
+  }
+
+  @Override
+  public void displaySnapshots(LinkedHashMap<String, String> snapshots) {
+    this.fileOut.println("<html>");
+    this.fileOut.println("<head>");
+    this.fileOut.println("</head>");
+    this.fileOut.println("<body>");
+
+    // Do the command, put the shape to HTML file
+    addCommandToHTML(snapshots);
 
     this.fileOut.println("</body>");
     this.fileOut.println("</html>");
