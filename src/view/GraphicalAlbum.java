@@ -7,6 +7,9 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * The type Graphical album.
+ */
 public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
 
   // Panels
@@ -28,6 +31,12 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
   private List<String> snapshotTimestamp; // for search button
   private List<String> snapshots;
 
+  /**
+   * Gets a list of timestamps from a list of snapshot strings.
+   *
+   * @param snapshots the list of snapshot strings to extract timestamps from
+   * @return a list of timestamps extracted from the snapshot strings
+   */
   private List<String> getSnapshotTimestamp(List<String> snapshots) {
     List<String> timestamps = new ArrayList<>();
     for (String snapshot : snapshots) {
@@ -42,6 +51,9 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     return timestamps;
   }
 
+  /**
+   * Instantiates a new Graphical album.
+   */
   public GraphicalAlbum() {
     // Frame setUp
     super();

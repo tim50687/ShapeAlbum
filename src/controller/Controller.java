@@ -23,9 +23,10 @@ public class Controller {
   /**
    * Instantiates a new Controller.
    *
-   * @param webAlbum  the web album
-   * @param inputFile the input file
-   * @param canvas    the canvas
+   * @param webAlbum       the web album
+   * @param graphicalAlbum the graphical album
+   * @param inputFile      the input file
+   * @param canvas         the canvas
    */
   public Controller(IWebAlbum webAlbum, IGraphicalAlbum graphicalAlbum, String inputFile,
       ICanvasModel canvas) {
@@ -57,6 +58,9 @@ public class Controller {
     this.webAlbum.displaySnapshots(this.canvas.getAllSnapshot());
   }
 
+  /**
+   * Send snapshots to graphical view.
+   */
   public void sendSnapshotsToGraphicalView() {
     this.graphicalAlbum.setSnapshots(this.canvas.getAllSnapshot());
   }

@@ -6,6 +6,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+/**
+ * The type Canvas panel.
+ */
 public class CanvasPanel extends JPanel {
 
   // Dimension for canvas panel
@@ -33,6 +36,11 @@ public class CanvasPanel extends JPanel {
   // Snapshot
   private String snapshot;
 
+  /**
+   * Instantiates a new Canvas panel.
+   *
+   * @param snapshot the snapshot
+   */
   public CanvasPanel(String snapshot) {
     super();
     this.setBackground(new Color(CANVAS_PANEL_R, CANVAS_PANEL_G, CANVAS_PANEL_B));
@@ -43,6 +51,14 @@ public class CanvasPanel extends JPanel {
     this.snapshot = snapshot;
   }
 
+  /**
+   * Adds the command to the graphical album by parsing the given snapshots and drawing shapes on
+   * the provided Graphics2D object.
+   *
+   * @param snapshots  A string representation of the snapshots to be parsed and drawn on the
+   *                   graphical album.
+   * @param graphics2D The Graphics2D object on which to draw the parsed shapes.
+   */
   private void addCommandToGraphical(String snapshots, Graphics2D graphics2D) {
     // Do the command
     int count = 0;
@@ -108,6 +124,11 @@ public class CanvasPanel extends JPanel {
   }
 
 
+  /**
+   * Sets snapshot.
+   *
+   * @param snapshot the snapshot
+   */
   public void setSnapshot(String snapshot) {
     this.snapshot = snapshot;
   }

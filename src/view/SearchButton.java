@@ -4,6 +4,9 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * The type Search button.
+ */
 public class SearchButton extends JButton {
 
   // Has the album to change its state
@@ -18,6 +21,11 @@ public class SearchButton extends JButton {
   // Image path
   private static final String path = "./src/assets/buttons/select.png";
 
+  /**
+   * Instantiates a new Search button.
+   *
+   * @param graphicalAlbum the graphical album
+   */
   public SearchButton(GraphicalAlbum graphicalAlbum) {
     this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
     this.setBorder(BorderFactory.createEtchedBorder());

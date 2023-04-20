@@ -54,6 +54,12 @@ public class WebAlbum implements IWebAlbum {
     }
   }
 
+  /**
+   * Adds the command and its corresponding shape(s) to an HTML file containing a web album of
+   * snapshots.
+   *
+   * @param snapshots a LinkedHashMap of strings representing snapshots
+   */
   private void addCommandToHTML(LinkedHashMap<String, String> snapshots) {
     // Do the command
     int count = 0;

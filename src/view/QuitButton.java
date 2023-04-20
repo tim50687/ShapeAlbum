@@ -18,6 +18,9 @@ public class QuitButton extends JButton {
   // Image path
   private static final String path = "./src/assets/buttons/exit.png";
 
+  /**
+   * Instantiates a new Quit button.
+   */
   public QuitButton() {
     this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
     this.setBorder(BorderFactory.createEtchedBorder());

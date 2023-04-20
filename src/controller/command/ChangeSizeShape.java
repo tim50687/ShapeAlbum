@@ -10,19 +10,9 @@ public class ChangeSizeShape implements Command {
 
   private ICanvasModel canvas;
   private String name;
-
-  /**
-   * The New width.
-   */
   int newWidth;
-  /**
-   * The Previous width.
-   */
   int previousWidth;
-
-
   int newHeight;
-
   int previousHeight;
 
 

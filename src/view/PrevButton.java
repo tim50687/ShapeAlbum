@@ -4,6 +4,9 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * The type Previous button.
+ */
 public class PrevButton extends JButton {
 
   // Has the album to change its state
@@ -18,6 +21,11 @@ public class PrevButton extends JButton {
   // Image path
   private static final String path = "./src/assets/buttons/previous.png";
 
+  /**
+   * Instantiates a new Prev button.
+   *
+   * @param graphicalAlbum the graphical album
+   */
   public PrevButton(GraphicalAlbum graphicalAlbum) {
     this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
     this.setBorder(BorderFactory.createEtchedBorder());

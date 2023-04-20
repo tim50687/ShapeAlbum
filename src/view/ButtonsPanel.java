@@ -3,6 +3,9 @@ package view;
 import java.awt.Color;
 import javax.swing.JPanel;
 
+/**
+ * The type Buttons panel.
+ */
 public class ButtonsPanel extends JPanel {
 
   // Has the album to change its state
@@ -25,6 +28,11 @@ public class ButtonsPanel extends JPanel {
   private final SearchButton searchButton;
   private final QuitButton quitButton;
 
+  /**
+   * Instantiates a new Buttons panel.
+   *
+   * @param graphicalAlbum the graphical album
+   */
   public ButtonsPanel(GraphicalAlbum graphicalAlbum) {
     super();
     this.setBackground(new Color(BUTTONS_PANEL_R, BUTTONS_PANEL_G, BUTTONS_PANEL_B));
