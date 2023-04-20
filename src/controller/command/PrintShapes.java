@@ -1,20 +1,20 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 
 /**
  * The command that print shapes on the canvas.
  */
 public class PrintShapes implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
 
   /**
    * Instantiates a new Print shapes.
    *
    * @param canvas the canvas
    */
-  public PrintShapes(Canvas canvas) {
+  public PrintShapes(ICanvasModel canvas) {
     this.canvas = canvas;
   }
 

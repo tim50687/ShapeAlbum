@@ -1,14 +1,14 @@
 package controller.command;
 
 import java.security.NoSuchAlgorithmException;
-import model.Canvas;
+import model.ICanvasModel;
 
 /**
  * The command that take snapshot of the canvas to record current status.
  */
 public class SnapShotCanvas implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String description;
   private String ID;
 
@@ -18,7 +18,7 @@ public class SnapShotCanvas implements Command {
    * @param canvas      the canvas
    * @param description the description
    */
-  public SnapShotCanvas(Canvas canvas, String description) {
+  public SnapShotCanvas(ICanvasModel canvas, String description) {
     this.ID = "";
     this.canvas = canvas;
     this.description = description;

@@ -1,6 +1,5 @@
 package controller;
 
-import model.Canvas;
 import controller.command.ChangeColorShape;
 import controller.command.ChangeSizeShape;
 import controller.command.Command;
@@ -14,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import model.ICanvasModel;
 import model.shape.ICoordinate;
 import model.shape.IShape;
 import model.shape.ShapeFactory;
@@ -29,7 +29,7 @@ public class FileParser {
   Scanner fileIn; // connection to input file
   String filenameIn; // name of input file
   List<Command> commands; // Commands to be executed
-  Canvas canvas; // Command need canvas
+  ICanvasModel canvas; // Command need canvas
 
   /**
    * Instantiates a new File parser.
@@ -37,7 +37,7 @@ public class FileParser {
    * @param filenameIn the filename in
    * @param canvas     the canvas
    */
-  public FileParser(String filenameIn, Canvas canvas) {
+  public FileParser(String filenameIn, ICanvasModel canvas) {
     this.filenameIn = filenameIn;
     this.fileIn = new Scanner(this.filenameIn);
     this.commands = new ArrayList<>();

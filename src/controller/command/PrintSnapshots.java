@@ -1,20 +1,20 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 
 /**
  * The command that print snapshots on the canvas.
  */
 public class PrintSnapshots implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
 
   /**
    * Instantiates a new Print snapshots.
    *
    * @param canvas the canvas
    */
-  public PrintSnapshots(Canvas canvas) {
+  public PrintSnapshots(ICanvasModel canvas) {
     this.canvas = canvas;
   }
 

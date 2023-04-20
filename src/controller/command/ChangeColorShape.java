@@ -1,14 +1,14 @@
 package controller.command;
 
-import model.Canvas;
 import java.awt.Color;
+import model.ICanvasModel;
 
 /**
  * The command that change color shape.
  */
 public class ChangeColorShape implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String type;
   private String name;
 
@@ -22,7 +22,7 @@ public class ChangeColorShape implements Command {
    * @param name     the name of the shape
    * @param newColor the new color
    */
-  public ChangeColorShape(Canvas canvas, String name, Color newColor) {
+  public ChangeColorShape(ICanvasModel canvas, String name, Color newColor) {
     this.canvas = canvas;
     this.name = name;
     this.newColor = newColor;

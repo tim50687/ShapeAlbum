@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Canvas;
+import model.ICanvasModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class WebAlbumTest {
 
   private final String inputFile = "./src/assets/commandinputfile/demo_input.txt";
   private final String outputFile = "./test/view/outputTest.html";
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private IWebAlbum webAlbum;
   private IGraphicalAlbum graphicalAlbum;
   private Controller controller;

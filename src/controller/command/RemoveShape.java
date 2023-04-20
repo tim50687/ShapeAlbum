@@ -1,6 +1,6 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 import model.shape.IShape;
 
 /**
@@ -8,7 +8,7 @@ import model.shape.IShape;
  */
 public class RemoveShape implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String name;
   private IShape shape;
 
@@ -18,7 +18,7 @@ public class RemoveShape implements Command {
    * @param canvas the canvas
    * @param name   the name of the shape
    */
-  public RemoveShape(Canvas canvas, String name) {
+  public RemoveShape(ICanvasModel canvas, String name) {
     this.canvas = canvas;
     this.name = name;
     this.shape = this.canvas.getShape(this.name);

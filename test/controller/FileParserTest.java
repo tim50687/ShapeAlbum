@@ -7,6 +7,7 @@ import controller.command.Command;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
+import model.ICanvasModel;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ import org.junit.Test;
 public class FileParserTest {
 
   private FileParser parser;
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private List<Command> commands;
 
   /**

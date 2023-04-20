@@ -4,7 +4,7 @@ import controller.command.Command;
 import controller.command.Invoker;
 import java.util.ArrayList;
 import java.util.List;
-import model.Canvas;
+import model.ICanvasModel;
 import view.IGraphicalAlbum;
 import view.IWebAlbum;
 
@@ -13,7 +13,7 @@ import view.IWebAlbum;
  */
 public class Controller {
 
-  private Canvas canvas; // Model
+  private ICanvasModel canvas; // Model
   private IWebAlbum webAlbum; // View -> output
   private IGraphicalAlbum graphicalAlbum; // View -> output
   private String inputFileName; // View -> Input
@@ -28,7 +28,7 @@ public class Controller {
    * @param canvas    the canvas
    */
   public Controller(IWebAlbum webAlbum, IGraphicalAlbum graphicalAlbum, String inputFile,
-      Canvas canvas) {
+      ICanvasModel canvas) {
     this.webAlbum = webAlbum;
     this.graphicalAlbum = graphicalAlbum;
     this.canvas = canvas;

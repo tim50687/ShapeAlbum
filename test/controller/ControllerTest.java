@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Canvas;
+import model.ICanvasModel;
 import org.junit.Before;
 import org.junit.Test;
 import view.GraphicalAlbum;
@@ -20,7 +21,7 @@ import view.WebAlbum;
 public class ControllerTest {
 
   private Controller controller;
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String inputFile;
   private final String outputFile = "./test/controller/outputTest.html";
   private IWebAlbum webAlbum;

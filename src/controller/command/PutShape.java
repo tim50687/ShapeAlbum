@@ -1,6 +1,6 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 import model.shape.IShape;
 
 /**
@@ -8,7 +8,7 @@ import model.shape.IShape;
  */
 public class PutShape implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String name;
   private IShape shape;
 
@@ -20,7 +20,7 @@ public class PutShape implements Command {
    * @param name   the name
    * @param shape  the shape
    */
-  public PutShape(Canvas canvas, String name, IShape shape) {
+  public PutShape(ICanvasModel canvas, String name, IShape shape) {
     this.canvas = canvas;
     this.name = name;
     this.shape = shape;

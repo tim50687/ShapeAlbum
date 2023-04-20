@@ -1,6 +1,6 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 import model.shape.ICoordinate;
 
 /**
@@ -8,7 +8,7 @@ import model.shape.ICoordinate;
  */
 public class MoveShape implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String name;
   private ICoordinate newCoordinate;
   private ICoordinate previousCoordinate;
@@ -21,7 +21,7 @@ public class MoveShape implements Command {
    * @param name          the name
    * @param newCoordinate the new coordinate
    */
-  public MoveShape(Canvas canvas, String name,
+  public MoveShape(ICanvasModel canvas, String name,
       ICoordinate newCoordinate) {
     this.canvas = canvas;
     this.name = name;

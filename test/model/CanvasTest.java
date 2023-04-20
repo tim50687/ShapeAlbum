@@ -26,8 +26,8 @@ import model.shape.twoDCoordinate;
 public class CanvasTest {
 
   // Create canvas
-  private Canvas canvas1;
-  private Canvas canvas2;
+  private ICanvasModel canvas1;
+  private ICanvasModel canvas2;
   // Create shape
   private ShapeFactory factory;
   private IShape oval;

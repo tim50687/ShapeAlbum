@@ -1,6 +1,6 @@
 package controller.command;
 
-import model.Canvas;
+import model.ICanvasModel;
 import model.shape.IShape;
 
 /**
@@ -8,7 +8,7 @@ import model.shape.IShape;
  */
 public class ChangeSizeShape implements Command {
 
-  private Canvas canvas;
+  private ICanvasModel canvas;
   private String name;
 
   /**
@@ -34,7 +34,7 @@ public class ChangeSizeShape implements Command {
    * @param newWidth  the new width
    * @param newHeight the new length
    */
-  public ChangeSizeShape(Canvas canvas, String name, int newWidth,
+  public ChangeSizeShape(ICanvasModel canvas, String name, int newWidth,
       int newHeight) {
     this.canvas = canvas;
     this.name = name;
