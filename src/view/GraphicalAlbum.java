@@ -17,8 +17,8 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
   private ButtonsPanel buttonPanel;
 
   // Dimension for snapshot
-  private static final int SNAPSHOT_WIDTH = 1600;
-  private static final int SNAPSHOT_HEIGHT = 900;
+  private final int snapshot_width;
+  private final int snapshot_height;
 
   // Background color for graphical album
   private static final int GRAPHICAL_ALBUM_PANEL_R = 200;
@@ -54,13 +54,15 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
   /**
    * Instantiates a new Graphical album.
    */
-  public GraphicalAlbum() {
+  public GraphicalAlbum(int width, int height) {
     // Frame setUp
     super();
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false); // Fixed size
     this.setLayout(null);
-    this.setSize(SNAPSHOT_WIDTH, SNAPSHOT_HEIGHT);
+    this.snapshot_width = width;
+    this.snapshot_height = height;
+    this.setSize(this.snapshot_width, this.snapshot_height);
     this.setLocationRelativeTo(null);
     this.getContentPane().setBackground(
         new Color(GRAPHICAL_ALBUM_PANEL_R, GRAPHICAL_ALBUM_PANEL_G, GRAPHICAL_ALBUM_PANEL_B));

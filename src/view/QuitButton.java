@@ -10,7 +10,7 @@ import javax.swing.JButton;
 public class QuitButton extends JButton {
 
   // Dimension for next button
-  private static final int BUTTONS_X = 1230;
+  private static final int BUTTONS_X = 770;
   private static final int BUTTONS_Y = 2;
   private static final int BUTTONS_WIDTH = 80;
   private static final int BUTTONS_HEIGHT = 80;

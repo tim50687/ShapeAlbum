@@ -13,8 +13,8 @@ public class ButtonsPanel extends JPanel {
 
   // Dimension for button panel
   private static final int BUTTONS_PANEL_X = 0;
-  private static final int BUTTONS_PANEL_Y = 800;
-  private static final int BUTTONS_PANEL_WIDTH = 1600;
+  private static final int BUTTONS_PANEL_Y = 900;
+  private static final int BUTTONS_PANEL_WIDTH = 1000;
   private static final int BUTTONS_PANEL_HEIGHT = 100;
 
   // Background color for panel

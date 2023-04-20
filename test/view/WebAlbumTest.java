@@ -32,7 +32,7 @@ public class WebAlbumTest {
   public void setUp() {
     canvas = new Canvas(1600, 800);
     webAlbum = new WebAlbum(outputFile);
-    graphicalAlbum = new GraphicalAlbum();
+    graphicalAlbum = new GraphicalAlbum(1000, 1000);
     controller = new Controller(webAlbum, graphicalAlbum, inputFile, canvas);
     // Do all the command from the input file
     controller.run();

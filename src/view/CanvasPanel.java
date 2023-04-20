@@ -15,7 +15,7 @@ public class CanvasPanel extends JPanel {
   private static final int CANVAS_PANEL_X = 0;
   private static final int CANVAS_PANEL_Y = 0;
   private static final int CANVAS_PANEL_WIDTH = 1600;
-  private static final int CANVAS_PANEL_HEIGHT = 800;
+  private static final int CANVAS_PANEL_HEIGHT = 900;
 
   // Background color for panel
   private static final int CANVAS_PANEL_R = 200;
@@ -23,8 +23,8 @@ public class CanvasPanel extends JPanel {
   private static final int CANVAS_PANEL_B = 255;
 
   // Timestamp
-  private static final int TIMESTAMP_X = 1200;
-  private static final int TIMESTAMP_Y = 30;
+  private static final int TIMESTAMP_X = 0;
+  private static final int TIMESTAMP_Y = 880;
 
   // Description
   private static final int DESCRIPTION_X = 0;
@@ -87,10 +87,6 @@ public class CanvasPanel extends JPanel {
         } else {
           description = line.split(": ")[1];
         }
-        // Draw timestamp
-        graphics2D.setPaint(Color.black);
-        graphics2D.setFont(new Font("Garamond", Font.PLAIN, FONT_SIZE));
-        graphics2D.drawString(timestamp, TIMESTAMP_X, TIMESTAMP_Y);
       } else if (line.startsWith("Type")) {
         type = line.split(": ")[1];
         // Get the information of the shape
@@ -116,6 +112,10 @@ public class CanvasPanel extends JPanel {
           graphics2D.fillOval(x, y, width, height);
         }
       }
+      // Draw timestamp
+      graphics2D.setPaint(Color.black);
+      graphics2D.setFont(new Font("Garamond", Font.PLAIN, FONT_SIZE));
+      graphics2D.drawString(timestamp, TIMESTAMP_X, TIMESTAMP_Y);
       // Draw Description
       graphics2D.setPaint(Color.black);
       graphics2D.setFont(new Font("Garamond", Font.PLAIN, FONT_SIZE));

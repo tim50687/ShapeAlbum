@@ -33,7 +33,7 @@ public class ControllerTest {
   @Before
   public void setUp() {
     canvas = new Canvas(1600, 900);
-    graphicalAlbum = new GraphicalAlbum();
+    graphicalAlbum = new GraphicalAlbum(1000, 1000);
 
   }
 

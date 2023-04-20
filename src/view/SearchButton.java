@@ -13,7 +13,7 @@ public class SearchButton extends JButton {
   private GraphicalAlbum graphicalAlbum;
 
   // Dimension for next button
-  private static final int BUTTONS_X = 910;
+  private static final int BUTTONS_X = 570;
   private static final int BUTTONS_Y = 2;
   private static final int BUTTONS_WIDTH = 70;
   private static final int BUTTONS_HEIGHT = 70;
