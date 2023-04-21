@@ -48,14 +48,14 @@ In the process of working on this project, several changes were made to the orig
 Architectural Approach
 ----------------------
 
-For this project, we have chosen the `MVC` (Model-View-Controller) pattern in software design, which is commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display.
+For this project, I have chosen the `MVC` (Model-View-Controller) pattern in software design, which is commonly used to implement user interfaces, data, and controlling logic. It emphasizes a separation between the software's business logic and display.
 
-In part 1 of the shape model, we have implemented the model part, which focuses on implementing the functionality for the shape model. The model holds all the data, state, and application logic.
+In part 1 of the shape model, I have implemented the model part, which focuses on implementing the functionality for the shape model. The model holds all the data, state, and application logic.
 
 Design Pattern
 --------------
 
-We have chosen two design patterns for this project:
+I have chosen two design patterns for this project:
 
 1.  Creational Design Pattern: `Factory Method Pattern`
     *   Single responsibility: The logic for creating shapes is isolated in one place, rather than being scattered throughout the codebase.
@@ -155,17 +155,17 @@ For example:
 - `snapshot`: Tells the model to take a snapshot of the current state of the album
   - `description` (optional) - optional text that the command file can use to tag the snapshot with extra information
 
-2. Go to `/resources`, and you should see the `ShapAlbum.jar`.
+2. Go to `/resources`, and you should see the `ShapeAlbum.jar`.
 3. Open your terminal in this directory.
 4. If you need **Web** view of the Shape album.
-  - Run: `java -jar ShapAlbum.jar -in <your input file> -view web -out <output html file>`
-  - For example: `java -jar ShapAlbum.jar -in buildings.txt -view web -out out.html`
+  - Run: `java -jar ShapeAlbum.jar -in <your input file> -view web -out <output html file>`
+  - For example: `java -jar ShapeAlbum.jar -in buildings.txt -view web -out out.html`
   ![web](../web.png)
 
 
 5. If you need **Graphical** view of the Shape album.
-  - Run: `java -jar ShapAlbum.jar -in <your input file> -view graphical <xmax> <ymax>`
-  - For example: `java -jar ShapAlbum.jar -in buildings.txt -view graphical 1000 1000`
+  - Run: `java -jar ShapeAlbum.jar -in <your input file> -view graphical <xmax> <ymax>`
+  - For example: `java -jar ShapeAlbum.jar -in buildings.txt -view graphical 1000 1000`
   - `Note`: 
   The `xmax` and `ymax` are optional integers that specify the bounds of the "Graphical view window". If these attributes are not specified, a default value of 1000 is used for both x (width) and y (height).
   ![graphical](../graphical.png)
