@@ -29,14 +29,14 @@ Changes Made From Part 2
 In the process of working on this project, several changes were made to the original codebase. These changes include:
 * Shape Interface
   *   Added get/set methods for width and height in the Shape interface, with the data type set to integer.
-  *   Removed getArea() and getPerimeter() method in the Shape interface.
+  *   Removed getArea() and getPerimeter() methods in the Shape interface.
 
-        `Note`:  Adding / Removing a method from an interface that is implemented by many classes can lead to breaking changes in the implementation classes, and could require a significant amount of refactoring. Since it's a small project, so that I go back and refactor my code. But next time in the future I should consider doing: 
+        `Note`:  Adding / Removing a method from an interface that is implemented by many classes can lead to breaking changes in the implementation classes, and could require a significant amount of refactoring. Since it's a small project, I did go back and refactor my code. But in the future, I will consider doing the following: 
 
         1. Think carefully about the methods you include in your interface before publishing it. Only include methods that are truly necessary for the functionality of your program.
         2. Consider using default methods or creating a new interface that extends the existing one to avoid breaking changes.
 * Shape class
-  *   Removed the Circle and Square classes, and made only the Oval class and Rectangle class instead. I found out that square can be created by rectangle and circle can be created by oval. To simplified code.
+  *   Removed the Circle and Square classes, and made only the Oval class and Rectangle class instead. I found out that square can be created by rectangle and circle can be created by oval. This simplified the code.
 * Canvas model
   *   Created a model interface because users do not need to know the implementation details of the class.
   *   Removed `out-of-bound validation` checks for shapes on the canvas, as it was discovered that users could still add shapes even if they were out of bounds.
@@ -88,7 +88,7 @@ The Graphical View is an implementation of the View component in the Shape Model
 
 *   Render the canvas and shapes using Java Swing components.
 *   Display a list of shapes on the canvas.
-*   Allow users to view and switch the snapshots on the canvas.
+*   Allow users to view and switch between snapshots.
 
 
 Getting Started
@@ -157,11 +157,15 @@ For example:
 
 2. Go to `/resources`, and you should see the `ShapAlbum.jar`.
 3. Open your terminal in this directory.
-4. If you need Web view of the Shape album.
+4. If you need **Web** view of the Shape album.
   - Run: `java -jar ShapAlbum.jar -in <your input file> -view web -out <output html file>`
   - For example: `java -jar ShapAlbum.jar -in buildings.txt -view web -out out.html`
-5. If you need Graphical view of the Shape album.
+  ![web](web.png)
+
+
+5. If you need **Graphical** view of the Shape album.
   - Run: `java -jar ShapAlbum.jar -in <your input file> -view graphical <xmax> <ymax>`
   - For example: `java -jar ShapAlbum.jar -in buildings.txt -view graphical 1000 1000`
   - `Note`: 
   The `xmax` and ym`ax are optional integers that specify the bounds of the "Graphical view window". If these attributes are not specified, a default value of 1000 is used for both x (width) and y (height).
+  ![graphical](graphical.png)
