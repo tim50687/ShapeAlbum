@@ -57,12 +57,15 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
    * Instantiates a new Graphical album.
    */
   public GraphicalAlbum(int width, int height) {
-    // Frame setUp
-    super();
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setResizable(false); // Fixed size
     this.snapshot_width = width;
     this.snapshot_height = height;
+  }
+
+  @Override
+  public void setSnapshots(LinkedHashMap<String, String> snapshots) {
+    // Set up frame
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setResizable(false); // Fixed size
     this.setPreferredSize(new Dimension(this.snapshot_width, this.snapshot_height));
     this.setLocationRelativeTo(null);
     this.getContentPane().setBackground(
@@ -72,11 +75,6 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     this.add(buttonPanel, BorderLayout.SOUTH);
 
     this.setVisible(false);
-    this.pack();
-  }
-
-  @Override
-  public void setSnapshots(LinkedHashMap<String, String> snapshots) {
     // Add snapshots to Graphical album
     this.snapshots = new ArrayList<>(snapshots.values());
     this.snapshotTimestamp = getSnapshotTimestamp(this.snapshots);
