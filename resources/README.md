@@ -167,5 +167,5 @@ For example:
   - Run: `java -jar ShapAlbum.jar -in <your input file> -view graphical <xmax> <ymax>`
   - For example: `java -jar ShapAlbum.jar -in buildings.txt -view graphical 1000 1000`
   - `Note`: 
-  The `xmax` and ym`ax are optional integers that specify the bounds of the "Graphical view window". If these attributes are not specified, a default value of 1000 is used for both x (width) and y (height).
+  The `xmax` and `ymax` are optional integers that specify the bounds of the "Graphical view window". If these attributes are not specified, a default value of 1000 is used for both x (width) and y (height).
   ![graphical](../graphical.png)
