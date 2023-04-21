@@ -1,6 +1,8 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -59,18 +61,18 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     super();
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false); // Fixed size
-    this.setLayout(null);
     this.snapshot_width = width;
     this.snapshot_height = height;
-    this.setSize(this.snapshot_width, this.snapshot_height);
+    this.setPreferredSize(new Dimension(this.snapshot_width, this.snapshot_height));
     this.setLocationRelativeTo(null);
     this.getContentPane().setBackground(
         new Color(GRAPHICAL_ALBUM_PANEL_R, GRAPHICAL_ALBUM_PANEL_G, GRAPHICAL_ALBUM_PANEL_B));
     // Add button panel on the frame
     this.buttonPanel = new ButtonsPanel(this);
-    this.add(buttonPanel);
+    this.add(buttonPanel, BorderLayout.SOUTH);
 
     this.setVisible(false);
+    this.pack();
   }
 
   @Override
@@ -82,10 +84,11 @@ public class GraphicalAlbum extends JFrame implements IGraphicalAlbum {
     // Add canvas panel on the frame
     // By default, put the fist snapshot on the canvas
     this.canvasPanel = new CanvasPanel(this.snapshots.get(currentSnapshotIndex));
-    this.add(canvasPanel);
+    this.add(canvasPanel, BorderLayout.CENTER);
 
     // Frame can be seen after add on the canvas panel
     this.setVisible(true);
+    this.pack();
   }
 
   @Override

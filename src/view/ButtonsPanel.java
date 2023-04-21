@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 /**
@@ -34,10 +35,8 @@ public class ButtonsPanel extends JPanel {
    * @param graphicalAlbum the graphical album
    */
   public ButtonsPanel(GraphicalAlbum graphicalAlbum) {
-    super();
+    super(new FlowLayout(FlowLayout.CENTER, 10, 10));
     this.setBackground(new Color(BUTTONS_PANEL_R, BUTTONS_PANEL_G, BUTTONS_PANEL_B));
-    this.setBounds(BUTTONS_PANEL_X, BUTTONS_PANEL_Y, BUTTONS_PANEL_WIDTH, BUTTONS_PANEL_HEIGHT);
-    this.setLayout(null);
     this.graphicalAlbum = graphicalAlbum;
 
     // Add button on the panel
@@ -45,8 +44,9 @@ public class ButtonsPanel extends JPanel {
     prevButton = new PrevButton(this.graphicalAlbum);
     searchButton = new SearchButton(this.graphicalAlbum);
     quitButton = new QuitButton();
-    this.add(this.nextButton);
+
     this.add(this.prevButton);
+    this.add(this.nextButton);
     this.add(this.searchButton);
     this.add(this.quitButton);
   }

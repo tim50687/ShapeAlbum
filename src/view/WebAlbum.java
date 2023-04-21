@@ -46,6 +46,11 @@ public class WebAlbum implements IWebAlbum {
    * @param outputFile the output file
    */
   public WebAlbum(String outputFile) {
+    // if output is null, do nothing
+    if (outputFile == null) {
+      System.out.println("Web view is not being processed, output in null");
+      return;
+    }
     File file = new File(outputFile); // Will create file if not exist
     try {
       this.fileOut = new PrintWriter(file);

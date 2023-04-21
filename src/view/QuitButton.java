@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,13 +17,13 @@ public class QuitButton extends JButton {
   private static final int BUTTONS_HEIGHT = 80;
 
   // Image path
-  private static final String path = "./src/assets/buttons/exit.png";
+  private static final String path = "../src/assets/buttons/exit.png";
 
   /**
    * Instantiates a new Quit button.
    */
   public QuitButton() {
-    this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    this.setPreferredSize(new Dimension(BUTTONS_WIDTH, BUTTONS_HEIGHT)); // set preferred size
     this.setBorder(BorderFactory.createEtchedBorder());
     ImageIcon quit = new ImageIcon(path);
     this.setIcon(quit);

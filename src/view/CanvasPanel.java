@@ -24,11 +24,11 @@ public class CanvasPanel extends JPanel {
 
   // Timestamp
   private static final int TIMESTAMP_X = 0;
-  private static final int TIMESTAMP_Y = 880;
+  private static final int TIMESTAMP_Y = 30;
 
   // Description
   private static final int DESCRIPTION_X = 0;
-  private static final int DESCRIPTION_Y = 30;
+  private static final int DESCRIPTION_Y = 60;
 
   // Font size
   private static final int FONT_SIZE = 30;

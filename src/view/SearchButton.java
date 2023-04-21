@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,7 +20,7 @@ public class SearchButton extends JButton {
   private static final int BUTTONS_HEIGHT = 70;
 
   // Image path
-  private static final String path = "./src/assets/buttons/select.png";
+  private static final String path = "../src/assets/buttons/select.png";
 
   /**
    * Instantiates a new Search button.
@@ -27,7 +28,7 @@ public class SearchButton extends JButton {
    * @param graphicalAlbum the graphical album
    */
   public SearchButton(GraphicalAlbum graphicalAlbum) {
-    this.setBounds(BUTTONS_X, BUTTONS_Y, BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    this.setPreferredSize(new Dimension(BUTTONS_WIDTH, BUTTONS_HEIGHT)); // set preferred size
     this.setBorder(BorderFactory.createEtchedBorder());
     ImageIcon search = new ImageIcon(path);
     this.setIcon(search);
